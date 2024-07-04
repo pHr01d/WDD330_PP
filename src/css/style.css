@@ -1,0 +1,467 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron|Raleway');
+
+:root {
+  /* https://coolors.co/000000-1c1c1c-f9f9e9-adad8b-596869-c05746-daa520-259963 */
+  --color-background1: #000000;
+  --color-background2: #1c1c1c;
+  --color-primary: #f9f9e9;
+  --color-secondary: #e9e094;
+  --color-tertiary: #adad8b;
+  --color-accent1: #596869;
+  --color-accent2: #c05746;
+  --color-accent3: #daa520;
+  --color-accent4: #259963;
+
+  --color-input-bkg1: #b0f0f0;
+  --color-input-bkg2: #cdf0b0;
+
+  --font-heading: "Orbitron", Times, serif;
+  --font-paragraph: "Raleway", Arial, sans-serif;
+}
+
+html {
+  background-color: var(--color-background2);
+  font-size: 1em;
+}
+
+header {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 100px auto 100px;
+  background-color: var(--color-background1);
+  border-style: none none solid none;
+  border-color: var(--color-accent3);
+}
+
+body {
+  max-width: 80%;
+  margin: 0 auto;
+  background-color:var(--color-background1);
+  color: var(--color-primary);
+  padding: 1em;
+  font-family: var(--font-paragraph);
+}
+
+footer {
+  display: grid;
+  grid-template-columns: 1fr 30%;
+  grid-template-rows: 30px;
+  color: var(--paragraph-color-on-color);
+  background-color: var(--text-background-color);
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-style: solid none none none;
+  border-color: var(--color-accent3);
+}
+
+img {
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-secondary);
+  letter-spacing: 0.1em;
+}
+
+p {
+  font-family: var(--font-paragraph);
+  color: var(--color-primary);
+  line-height: 1.2em;
+  letter-spacing: 0.03em;
+  margin: 0.7em 1.5em;
+}
+
+a {
+  color: var(--color-accent2);
+  font-family: var(--font-paragraph);
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--color-accent1);
+}
+
+li a {
+  text-decoration: none;
+}
+
+nav {
+  line-height: 1em;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+nav > ul {
+  list-style-type: none;
+  display: flex;
+}
+
+nav a {
+  padding: 0.4em 1em;
+  min-width: 70px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:link, nav a:visited {
+  color: var(--color-accent3);
+}
+
+nav a:hover {
+  color: var(--color-background2);
+  background-color: var(--color-accent3);
+}
+
+hr {
+  color: var(--color-accent4);
+}
+
+#copyright {
+  font-size: 0.7em;
+  font-weight: bold;
+  align-self: center;
+}
+
+#topnav ul {
+  list-style: none;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(6em, 1fr));
+}
+
+#topnav li {
+  display: inline;
+  padding: 10px;
+  font-size: 1.4em;
+}
+
+#gearbox {
+  place-self: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.title {
+  font-weight: bolder;
+  text-align: center;
+}
+
+.logo-box {
+  padding: 0.2em;
+}
+
+.banner-box img {
+  display: block;
+  width: 100%;
+  margin: auto;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 2em;
+  gap: 1em;
+}
+
+.home-paragraph1 {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.home-image1 {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+
+.home-paragraph2 {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+.home-image2 {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+
+.home-paragraph3 {
+  grid-column: 1/2;
+  grid-row: 3/4;
+}
+
+.home-image3 {
+  grid-column: 2/3;
+  grid-row: 3/4;
+}
+
+.social {
+  grid-column: 2/3;
+  justify-self: right;
+  align-self: center;
+}
+
+.social img{
+  max-height: 48px;
+}
+
+/* The-Shop Page ------------------------------------- */
+.shop-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-evenly;
+  margin: 2em;
+  gap: 1em;
+}
+
+.shop-intro {
+  grid-column: 1/2;
+  align-content: center;
+}
+
+.shop-form {
+  grid-column: 2/3;
+  display: flex;
+}
+
+.gadget-grid {
+  display: flex;
+}
+
+.label {
+  font-family: var(--font-paragraph);
+  font-size: 0.9em;
+  margin: 1.2em 0 -1.0em 0;
+  color: var(--color-accent3);
+}
+
+label {
+  font-family: var(--font-paragraph);
+  font-size: 0.9em;
+  margin: 1.2em 0 -1.0em 0;
+  color: var(--color-primary);
+}
+
+input {
+  border: none;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1em;
+  margin:0.3em;
+  padding: 0.2em;;
+}
+input:focus {
+  background-color: var(--color-input-bkg1);
+}
+input:hover {
+  background-color: var(--color-input-bkg2);
+}
+textarea:focus {
+  
+  background-color: var(--color-input-bkg1);
+}
+#cname { width: 100%; }
+#email { width: 62%; }
+#phone { width: 28%; }
+#address { width: 100%; }
+#city { width: 67%;}
+#state { width: 5%; }
+#zip { width: 13%; }
+
+.button-group {
+  display: flex;
+  justify-content: center;
+}
+.button {
+  background-color: var(--color-accent3);
+  color: var(--color-background1);
+  border: none;
+  border-radius: 0.4em;
+  padding: 10px 15px;
+  margin: 15px;
+  font-size: 1.0em;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* The following content is adapted from W3Schools Modal tutorial found at https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal_bottom */
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  -webkit-animation-name: fadeIn; /* Fade in the background */
+  -webkit-animation-duration: 0.4s;
+  animation-name: fadeIn;
+  animation-duration: 0.4s
+}
+
+/* Modal Content */
+.modal-content {
+  position: fixed;
+  bottom: 0;
+  background-color:var(--color-background1);
+  width: 100%;
+  -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.4s;
+  animation-name: slideIn;
+  animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+  color: var(--color-primary);
+  float: right;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: var(--color-accent2);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2rem 16px;
+  background-color: var(--color-accent1);
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+}
+
+.modal-body {
+  padding: 2px 16px;
+}
+
+.modal-footer {
+  padding: 1rem 16px;
+  background-color: var(--color-accent1);
+  color: var(--color-primary);
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+  from {bottom: -300px; opacity: 0} 
+  to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+  from {bottom: -300px; opacity: 0}
+  to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+
+/* Contact-Us Page ----------------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  margin: 2em 0em;
+}
+
+.naked {
+  list-style-type: none;
+}
+
+.strong {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: var(--color-accent4);
+}
+
+.address {
+  font-size: 0.85em;
+}
+
+.mapflag {
+  font-size: 1.5em;
+  padding-left: 0.5em;
+  margin-bottom: -1em;
+}
+
+p.sub-strong {
+  font-weight: bold;
+  margin-bottom: -0.5em;
+  margin-left: 0.5em;;
+}
+
+
+/* Site-Plan ----------------------------------------- */
+.colors {
+  font-family: var(--font-paragraph);
+  width: 100%;
+  min-width: 250px;
+  margin: auto;
+  text-align: center;
+}
+.colors th {
+  background-color: #444;
+}
+.colors td{
+  width: 13.3%;
+  height: 3em;
+}
+p.colored {
+  background-color: var(--color-secondary);
+  color: var(--color-background1);
+  padding: 1em;
+}
+
+/* Responsive Design Adjustments --------------------- */
+
+@media only screen and (max-width: 750px) {
+  .home-grid,
+  .shop-grid,
+  .contact-grid,
+  .gadget-grid,
+  #topnav ul {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #topnav li {
+    display: inline-block;
+  }
+  nav a {
+    padding: 5px 1rem;
+  }
+  .social img{
+    max-height: 32px;
+  }
+  
+}
