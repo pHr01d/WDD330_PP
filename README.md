@@ -1,4 +1,4 @@
-# fmdb
+# FMDb
 
 ## Description
 
