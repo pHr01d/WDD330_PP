@@ -58,12 +58,12 @@ function loadTemplate(path) {
 
 export async function loadHeaderFooter() {
   const
-    headerTemplateFn = loadTemplate("../assets/parts/header.html"),
+    headerTemplateFn = loadTemplate("../public/parts/header.html"),
     headerEl = qs("#main-header");
   renderWithTemplate(headerTemplateFn, headerEl);
 
   const
-    footerTemplateFn = loadTemplate("../assets/parts/footer.html"),
+    footerTemplateFn = loadTemplate("../public/parts/footer.html"),
     footerEl = qs("#main-footer");
   renderWithTemplate(footerTemplateFn, footerEl);
 }
