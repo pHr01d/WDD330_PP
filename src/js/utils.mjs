@@ -1,3 +1,6 @@
+//import {jwtDecode} from "jwt-decode";
+import { getMovieCount, getUserCount } from "./dbm.mjs";
+
 // wrapper for querySelector...returns matching element
 export const qs = (selector, parent = document) => parent.querySelector(selector);
 
@@ -58,12 +61,27 @@ function loadTemplate(path) {
 
 export async function loadHeaderFooter() {
   const
-    headerTemplateFn = loadTemplate("../public/parts/header.html"),
+    headerTemplateFn = loadTemplate("../parts/header.html"),
     headerEl = qs("#main-header");
   renderWithTemplate(headerTemplateFn, headerEl);
 
   const
-    footerTemplateFn = loadTemplate("../public/parts/footer.html"),
+    footerTemplateFn = loadTemplate("../parts/footer.html"),
     footerEl = qs("#main-footer");
   renderWithTemplate(footerTemplateFn, footerEl);
+}
+
+export async function loadStats() {
+  const statsEl = qs("#dbstats");
+  
+  function statsTemplateFn() {
+    const movieCount = getMovieCount();
+    const userCount = getUserCount();
+    const stats = `
+      <p>Number of movies: ${movieCount}</p>
+      <p>Number of registered users: ${userCount}</p>
+      `;
+    return stats;
+  }
+  renderWithTemplate(statsTemplateFn, statsEl);
 }

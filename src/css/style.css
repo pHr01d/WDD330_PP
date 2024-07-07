@@ -24,15 +24,6 @@ html {
   font-size: 1em;
 }
 
-header {
-  align-items: center;
-  display: grid;
-  grid-template-columns: 100px auto 100px;
-  background-color: var(--color-background1);
-  border-style: none none solid none;
-  border-color: var(--color-accent3);
-}
-
 body {
   max-width: 80%;
   margin: 0 auto;
@@ -40,6 +31,15 @@ body {
   color: var(--color-primary);
   padding: 1em;
   font-family: var(--font-paragraph);
+}
+
+header {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 100px auto 100px;
+  background-color: var(--color-background1);
+  border-style: none none solid none;
+  border-color: var(--color-accent3);
 }
 
 footer {
@@ -52,6 +52,10 @@ footer {
   padding: 5px 10px;
   border-style: solid none none none;
   border-color: var(--color-accent3);
+}
+
+hr {
+  border-color: var(--color-accent4);
 }
 
 img {
@@ -113,9 +117,6 @@ nav a:hover {
   background-color: var(--color-accent3);
 }
 
-hr {
-  color: var(--color-accent4);
-}
 
 #copyright {
   font-size: 0.7em;
@@ -139,16 +140,6 @@ hr {
 #gearbox {
   place-self: center;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
