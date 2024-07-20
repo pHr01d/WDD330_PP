@@ -1,0 +1,13 @@
+[{
+  "userID": "Admin",
+  "userPW": "password",
+  "userMod": "true",
+  "userDel": "false",
+  "userRating": "X"
+}, {
+  "userID": "Guest",
+  "userPW": "password",
+  "userMod": "false",
+  "userDel": "false",
+  "userRating": "G"
+}]

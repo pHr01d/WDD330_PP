@@ -1,7 +1,7 @@
 {
-  "name": "fmdb",
+  "name": "fml",
   "version": "1.0.0",
-  "description": "Family Movie Database",
+  "description": "Family Movie Library",
   "type": "module",
   "main": "main.js",
   "scripts": {

@@ -5,8 +5,8 @@
 
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
-const userKey = "fmdb-users";
-var userRating = "G";
+const userKey = "fml-users";
+var rating = "G";
 
 export function login(userID) {
   // get current User List from local storage
@@ -14,8 +14,8 @@ export function login(userID) {
 
   // If the user list doesn't exist, create it
   if (!userList) {
-     userList = [];
-     let user = {};
+     userList = []; // a list
+     let user = {}; // an array
      
      // Create default Admin user w/ attributes
     user = {
@@ -49,34 +49,15 @@ export function login(userID) {
 
   console.log("Users List: ", users);
   console.log("User index: ", index);
-  console.log("Exists? ", userExist);
+  console.log("User exists? ", userExist);
 
+  // getting the userRating is not like pulling from an array, this will
+  // need to be requested from the database
   if (userExist) {
-    userRating = users[index].userRating;
-    console.log("User Rating: ", userRating);
+    rating = userList[index].userRating;
+    console.log("User Rating: ", rating);
   }
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // export async function login(creds, redirect = "/") {
@@ -90,7 +71,6 @@ export function login(userID) {
 //       alert(err.message.message);
 //   }
 // }
-
 
 
 
@@ -116,8 +96,6 @@ export function login(userID) {
 //   console.log(token);
 //   return true;
 // }
-
-
 
 
 // export function checkLogin(){

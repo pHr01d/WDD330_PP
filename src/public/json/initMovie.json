@@ -1,0 +1,21 @@
+[{
+  "title": "Fake Movie Title",
+  "genre": "Family",
+  "rating": "G",
+  "runtime": "95",
+  "location": "A",
+  "disc": "00",
+  "type": ["DVD","BD","DIG"],
+  "likable": "3",
+  "comment": "This title was created because this is the first time using FML. You can delete this one."
+}, {
+  "title": "Another Fake Movie Title",
+  "genre": "Action",
+  "rating": "PG-13",
+  "runtime": "120",
+  "location": "A",
+  "disc": "01",
+  "type": ["DVD","DIG"],
+  "likable": "3",
+  "comment": "This title was created because this is the first time using FML. You can delete this one."
+}]

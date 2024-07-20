@@ -71,13 +71,16 @@ export async function loadHeaderFooter() {
   renderWithTemplate(footerTemplateFn, footerEl);
 }
 
-export async function loadStats() {
+export function loadStats() {
   const statsEl = qs("#dbstats");
   
-  function statsTemplateFn() {
-    const movieCount = getMovieCount();
-    const userCount = getUserCount();
-    const stats = `
+  async function statsTemplateFn() {
+    var movieCount = await getMovieCount();
+    var userCount = await getUserCount();
+
+    console.log("From inside utils module: ",movieCount, userCount);
+
+    var stats = `
       <p>Number of movies: ${movieCount}</p>
       <p>Number of registered users: ${userCount}</p>
       `;

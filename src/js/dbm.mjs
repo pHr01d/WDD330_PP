@@ -3,18 +3,18 @@
    as shown below.
 */
 
-var fmdb;
+var fml;
 
-export async function initDB() {
-  const dbRequest = indexedDB.open("FMDb");
+export function initDB() {
+  const dbRequest = indexedDB.open("fml");
 
   dbRequest.onupgradeneeded = () => {
-    console.log("FMDB create/upgrade required");
-    fmdb = dbRequest.result;
+    console.log("FML create/upgrade required");
+    fml = dbRequest.result;
 
     //create "movie" table
     const
-      movieStore = fmdb.createObjectStore("movies", {keyPath:"title"}),
+      movieStore = fml.createObjectStore("movies", {keyPath:"title"}),
       ndxTitle =  movieStore.createIndex("by_title", "title", {unique: true}),
       ndxGenre =  movieStore.createIndex("by_genre", "genre"),
       ndxRating = movieStore.createIndex("by_rating", "rating");
@@ -29,7 +29,7 @@ export async function initDB() {
       disc: "00",
       type: ["DVD","BD","DIG"],
       likable: 3,
-      comment: "This title was created because this is the first time using FMDb. You can delete this one."
+      comment: "This title was created because this is the first time using FML. You can delete this one."
     });
     movieStore.put({
       title: "Another Fake Movie Title",
@@ -40,16 +40,16 @@ export async function initDB() {
       disc: "01",
       type: ["DVD","DIG"],
       likable: 3,
-      comment: "This is another title created because this is the first time using FMDb. You can delete this one, too."
+      comment: "This is another title created because this is the first time using FML. You can delete this one, too."
     });
     console.log("Movie table created");
 
 
     const
-      userStore = fmdb.createObjectStore("users", {keyPath:"userID"}),
+      userStore = fml.createObjectStore("users", {keyPath:"userID"}),
       ndxUserID =  userStore.createIndex("by_UID", "userID", {unique: true});
 
-    //Initial record(s)
+    //Initial user record(s)
     userStore.put({
       userID: "Admin",
       userPW: "password",
@@ -68,25 +68,24 @@ export async function initDB() {
   };
 
   dbRequest.onsuccess = () => {
-    fmdb = dbRequest.result;
-    console.log(fmdb);
-    console.log("Database initialized");
+    fml = dbRequest.result;
+    console.log("Library initialized");
+    console.log(fml);
   };
 
   dbRequest.onerror = () => {
     console.error("DB error");
   };
-
 }
 
 
 export function getMovieCount() {
-  const dbRequest = indexedDB.open("FMDb");
+  const dbRequest = indexedDB.open("fml");
   dbRequest.onsuccess = () => {
-    fmdb = dbRequest.result;
+    fml = dbRequest.result;
 
     const
-      tx = fmdb.transaction(["movies"],"readonly"),
+      tx = fml.transaction(["movies"],"readonly"),
       store = tx.objectStore("movies"),
       ndx = store.index("by_title"),
       countReq = ndx.count();
@@ -95,27 +94,27 @@ export function getMovieCount() {
       var count = countReq.result;
 
       console.log("getMovieCount: ", count);
-      return count;
+      return Promise.resolve(count);
     }
   }
 }
 
 export function getUserCount() {
-  const dbRequest = indexedDB.open("FMDb");
+  const dbRequest = indexedDB.open("fml");
   dbRequest.onsuccess = () => {
-    fmdb = dbRequest.result;
+    fml = dbRequest.result;
 
     const
-      tx = fmdb.transaction(["users"],"readonly"),
+      tx = fml.transaction(["users"],"readonly"),
       store = tx.objectStore("users"),
       ndx = store.index("by_UID"),
       countReq = ndx.count();
     
-    countReq.onsuccess = async function() {
-      const count = await fetch(countReq.result).then();
+    countReq.onsuccess = function() {
+      var count = countReq.result;
 
       console.log("getUserCount: ", count);
-      return count;
+      return Promise.resolve(count);
     }
   }
 }

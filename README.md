@@ -1,8 +1,8 @@
-# FMDb
+# FML
 
 ## Description
 
-Family Movie Database is a web app that manages a locally stored database of movies that your family enjoys.
+Family Movie Library is a web app that manages a locally stored database of movies that your family enjoys.
 
 ## Features
 
