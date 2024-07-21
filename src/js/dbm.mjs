@@ -1,11 +1,14 @@
-/* These functions initialize a database for use.
+/* These functions initialize a database for use and perform operations
+   on the database.
+
    If the database does not exist, it initializes with the tables
    as shown below.
 */
 
+import { qs, renderWithTemplate } from "./utils.mjs";
 var fml;
 
-export function initDB() {
+export async function initDB() {
   const dbRequest = indexedDB.open("fml");
 
   dbRequest.onupgradeneeded = () => {
@@ -65,6 +68,7 @@ export function initDB() {
       userRating: "G"
     });
     console.log("User table created");
+    console.log(ndxTitle, ndxGenre, ndxRating, ndxUserID); // here to keep eslint from having a hissy-fit
   };
 
   dbRequest.onsuccess = () => {
@@ -79,27 +83,29 @@ export function initDB() {
 }
 
 
-export function getMovieCount() {
-  const dbRequest = indexedDB.open("fml");
-  dbRequest.onsuccess = () => {
-    fml = dbRequest.result;
+export async function getMovieCount() {
+  return new Promise((resolve) => {
+    var count = 0;
+    const dbRequest = indexedDB.open("fml");
+    dbRequest.onsuccess = () => {
+      fml = dbRequest.result;
 
-    const
-      tx = fml.transaction(["movies"],"readonly"),
-      store = tx.objectStore("movies"),
-      ndx = store.index("by_title"),
-      countReq = ndx.count();
-    
-    countReq.onsuccess = function() {
-      var count = countReq.result;
-
-      console.log("getMovieCount: ", count);
-      return Promise.resolve(count);
+      const
+        tx = fml.transaction(["movies"],"readonly"),
+        store = tx.objectStore("movies"),
+        ndx = store.index("by_title"),
+        countReq = ndx.count();
+      
+      countReq.onsuccess = function() {
+        count = countReq.result;
+        console.log("getMovieCount: ", count);
+      }
     }
-  }
+    resolve(count);
+  });
 }
 
-export function getUserCount() {
+export async function getUserCount() {
   const dbRequest = indexedDB.open("fml");
   dbRequest.onsuccess = () => {
     fml = dbRequest.result;
@@ -114,17 +120,47 @@ export function getUserCount() {
       var count = countReq.result;
 
       console.log("getUserCount: ", count);
-      return Promise.resolve(count);
+      return count;
     }
   }
 }
 
-export function getDBrecord(table, key, value) {
+export async function loadStats() {
+  const statsEl = qs("#dbstats");
+  console.log("Stats Element: ",statsEl);
 
-  console.log("getDBrecord", table, key, value);
+  const movieCount = await getMovieCount();
+  console.log("movieCount: ",movieCount);
 
+  const userCount = await getUserCount();
+  console.log("userCount: ",userCount);
+  
+
+  const stats = `<p>Number of movies: ${movieCount}</p>
+<p>Number of registered users: ${userCount}</p>`;
+  console.log(stats);
+
+//  renderWithTemplate(statsTemplateFn, statsEl);
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export function getDBrecord(table, key, value) {
+  console.log("getDBrecord started:", table, key, value);
+
+}
 
 
