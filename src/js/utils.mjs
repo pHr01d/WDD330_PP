@@ -27,23 +27,30 @@ export function getParam(param) {
   return product;
 }
 
-export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = true) {
-  if (clear) {
-    parentElement.innerHTML = " ";
-  }
+export function renderListWithTemplate(
+  templateFn,
+  parentElement,
+  list,
+  position = "afterbegin",
+  clear = true) {
+
+  if (clear) { parentElement.innerHTML = " "; }
   const htmlStrings = list.map(templateFn); //map method breaking out the array
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
 
-export async function renderWithTemplate(templateFn, parentElement, data, callback, position = "afterbegin", clear = true) {
-  if (clear) {
-    parentElement.innerHTML = " ";
-  }
+export async function renderWithTemplate(
+  templateFn,
+  parentElement,
+  data,
+  callback,
+  position = "afterbegin",
+  clear = true) {
+
+  if (clear) { parentElement.innerHTML = " "; }
   const htmlString = await templateFn(data);
   parentElement.insertAdjacentHTML(position, htmlString);
-  if (callback) {
-    callback(data);
-  }
+  if (callback) { callback(data); }
 }
 
 function loadTemplate(path) {

@@ -46,7 +46,6 @@ export function login(userID) {
     index = users.indexOf(userID),
     userExist = (index >= 0); //boolean showing if user exists
 
-
   console.log("Users List: ", users);
   console.log("User index: ", index);
   console.log("User exists? ", userExist);
