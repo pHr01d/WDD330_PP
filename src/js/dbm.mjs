@@ -177,8 +177,8 @@ export function commonLookup(key, action = "get", newValue) {
 }
 
 function statsTemplateFn(data) {
-  return `<p>${data.movieCount} movies listed</p>
-  <p>${data.userCount} users registered</p>`;
+  return `<p>${data.movieCount} movies in library</p>
+  <p>${data.userCount} registered users</p>`;
 }
 
 export async function loadStats() {
@@ -197,21 +197,8 @@ export async function loadStats() {
 }
 
 
-function movieListTemplate(data) {
-  return `<tr><td>${data.title}</td>
-  <td>${data.rating}</td>
-  <td>${data.runtime}</td>
-  <td>${data.location}.${data.disc}</td>
-  <td>${data.genre}</td>
-  <td>${data.likable}</td>
-  <td>${data.type}</td>
-  <td>${data.comment}</td>
-  </tr>`;
-}
-
-
 // This function should be able to retrieve a movie record
-export function getMovie(table, key, value) {
+export function getMoviesByCategory(table, key, value) {
   console.log("getDBrecord started:", table, key, value);
 
   return new Promise((resolve, reject) => {
